@@ -4,6 +4,7 @@ PhotoGallery::Application.routes.draw do
 
   root 'static_pages#home'
   match '/users', to: 'users#index', via: 'get'
+  match '/register', to: 'users#new', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
