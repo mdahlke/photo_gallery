@@ -1,13 +1,16 @@
 PhotoGallery::Application.routes.draw do
 
-  resources :galleries
+  resources :galleries, only: [:new, :create, :update, :show, :destroy]
 
-  resources :users, only:[:new, :edit, :update, :show, :create, :destroy]
+  resources :users, only: [:new, :edit, :update, :show, :create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
 
   root 'static_pages#home'
   match '/users', 	to: 'users#index',	via: 'get'
   match '/register',	to: 'users#new',	via: 'get'
-
+  match '/signin',	to: 'sessions#new',	via: 'get'
+  match '/signout', 	to: 'sessions#destroy',	via: 'delete'
+  match '/galleries', to: 'galleries#show', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

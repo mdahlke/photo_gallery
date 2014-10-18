@@ -11,12 +11,16 @@
 <%= render( 'layouts/header' ) %>
 <div class="container-fluid">
 
-  <div class='page-header clearfix row'>
-    <h1 class="col-xs-offset-2 col-xs-10"><%= yield( :page_header ) %></h1>
+  <div class='page-header clearfix'>
+    <div class="row">
+        <h1 class="col-xs-12 col-md-8 col-md-offset-2"><%= yield( :page_header ) %></h1>
+    </div>
   </div>
 
   <div class="row">
-    <%= yield %>
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <%= yield %>
+    </div>
   </div>
 
   <%= debug(params) %>
